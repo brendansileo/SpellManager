@@ -1,0 +1,32 @@
+.spell {
+    width: 90%;
+    height: 350px;
+    overflow: auto;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel {
+	border: 1px solid;
+	width: 47%;
+	height: 80%;
+	margin: 20px;
+	overflow: auto;
+}
+
+.levelFolder {
+	text-align: center;
+	color: black;
+	display: block;
+	width: 100%;
+	background-color: gray;
+	margin-bottom: 5px;
+}
+
+.levelFolder:hover {
+	color: white;
+}

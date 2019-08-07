@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 style="text-align: center">Spell Manager</h1>
+        <div id="stats">Class: <select id="class">
+                                <option value="" selected disabled>Select a Class</option>
+                                <option value="bard">Bard</option>
+                                <option value="cleric">Cleric</option>
+                                <option value="druid ">Druid</option>
+                                <option value="paladin">Paladin</option>
+                                <option value="ranger">Ranger</option>
+                                <option value="sorcerer">Sorcerer</option>
+                                <option value="warlock">Warlock</option>
+                                <option value="wizard">Wizard</option>
+                                </select>
+                        Level: <input type="number" id = "level" min="1" max="20"/>
+                        
+        </div>
+        <div id="spellList" class="panel float-left">
+            <div id="spells">
+                <div><a class="levelFolder" data-toggle="collapse" href="#level0">Cantrips</a></div>
+                <div id="level0" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level1">Level 1</a></div>
+                <div id="level1" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level2">Level 2</a></div>
+                <div id="level2" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level3">Level 3</a></div>
+                <div id="level3" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level4">Level 4</a></div>
+                <div id="level4" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level5">Level 5</a></div>
+                <div id="level5" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level6">Level 6</a></div>
+                <div id="level6" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level7">Level 7</a></div>
+                <div id="level7" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level8">Level 8</a></div>
+                <div id="level8" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level9">Level 9</a></div>
+                <div id="level9" class="collapse show"></div>
+            </div>
+        </div>
+        <div id="preparedList" class="panel float-right" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="spells">
+                <div><a class="levelFolder" data-toggle="collapse" href="#level0Prep">Cantrips</a></div>
+                <div id="level0Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level1Prep">Level 1</a></div>
+                <div id="level1Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level2Prep">Level 2</a></div>
+                <div id="level2Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level3Prep">Level 3</a></div>
+                <div id="level3Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level4Prep">Level 4</a></div>
+                <div id="level4Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level5Prep">Level 5</a></div>
+                <div id="level5Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level6Prep">Level 6</a></div>
+                <div id="level6Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level7Prep">Level 7</a></div>
+                <div id="level7Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level8Prep">Level 8</a></div>
+                <div id="level8Prep" class="collapse show"></div>
+                <div><a class="levelFolder" data-toggle="collapse" href="#level9Prep">Level 9</a></div>
+                <div id="level9Prep" class="collapse show"></div>
+            </div>
+        </div>
+    </body>
+</html>
