@@ -1,3 +1,8 @@
+preparedCount = {'0': [], '1': [], '2': [], '3': [], '4': [], '5': [], '6': [], '7': [], '8': [], '9': []}
+
+fullCaster = ['druid', 'cleric']
+halfCaster = ['paladin']
+
 $(document).ready(function() { 
     getSpells();
 
@@ -9,9 +14,37 @@ $(document).ready(function() {
     $('#level').change(function(){
         var characterClass = $('#class').find(":selected").val();
         var level = $('#level').val();
+        var mod = $('#mod').val();
+        updatePrepared(characterClass, level, mod)
         getSpells(characterClass, level)
     });
+
+    $('#mod').change(function(){
+        var characterClass = $('#class').find(":selected").val();
+        var level = $('#level').val();
+        var mod = $('#mod').val();
+        updatePrepared(characterClass, level, mod)
+    });
 }); 
+
+function updatePrepared(characterClass, level, mod)
+{
+    for(var i=0;i<10;i++)
+    {
+        if(fullCaster.includes('characterClass'))
+        {
+            preparedCount[i.toString()] = [0, mod+level];
+        }
+        else if(halfCaster.includes('characterClass'))
+        {
+            preparedCount[i.toString()] = [0, mod+Math.floor(level/2)];
+        }
+        $('count'+i).empty()
+        console.log(preparedCount[i.toString()])
+        $('count'+i).append('['+preparedCount[i.toString()][0].toString()+' / '+preparedCount[i.toString()][1].toString()+']');
+    }
+
+}
 
 function getSpells(characterClass='', level=20) {
     var xhttp = new XMLHttpRequest();
