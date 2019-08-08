@@ -25,6 +25,7 @@
                                 </select>
                         Level: <input type="number" id = "level" min="1" max="20"/>
                         Spellcasting Modifier: <input type="number" id = "mod" min="-5" max="5"/>
+                        <div class="float-right"><span id="preparedCount">Prepared Count: [0 / 0]</span></div>
                         
         </div>
         <div id="spellList" class="panel float-left">
@@ -53,25 +54,25 @@
         </div>
         <div id="preparedList" class="panel float-right" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div id="spells">
-                <div><a class="levelFolder" data-toggle="collapse" href="#level0Prep">Cantrips</a></div>
+                <div><a id="folder0Prep" class="levelFolder" data-toggle="collapse" href="#level0Prep">Cantrips</a></div>
                 <div id="level0Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level1Prep">Level 1 <span id="count1"></span></a></div>
+                <div><a id="folder1Prep" class="levelFolder" data-toggle="collapse" href="#level1Prep">Level 1</a></div>
                 <div id="level1Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level2Prep">Level 2 <span id="count2"></span></a></div>
+                <div><a id="folder2Prep" class="levelFolder" data-toggle="collapse" href="#level2Prep">Level 2</a></div>
                 <div id="level2Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level3Prep">Level 3 <span id="count3"></span></a></div>
+                <div><a id="folder3Prep" class="levelFolder" data-toggle="collapse" href="#level3Prep">Level 3</a></div>
                 <div id="level3Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level4Prep">Level 4 <span id="count4"></span></a></div>
+                <div><a id="folder4Prep" class="levelFolder" data-toggle="collapse" href="#level4Prep">Level 4</a></div>
                 <div id="level4Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level5Prep">Level 5 <span id="count5"></span></a></div>
+                <div><a id="folder5Prep" class="levelFolder" data-toggle="collapse" href="#level5Prep">Level 5</a></div>
                 <div id="level5Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level6Prep">Level 6 <span id="count6"></span></a></div>
+                <div><a id="folder6Prep" class="levelFolder" data-toggle="collapse" href="#level6Prep">Level 6</a></div>
                 <div id="level6Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level7Prep">Level 7 <span id="count7"></span></a></div>
+                <div><a id="folder7Prep" class="levelFolder" data-toggle="collapse" href="#level7Prep">Level 7</a></div>
                 <div id="level7Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level8Prep">Level 8 <span id="count8"></span></a></div>
+                <div><a id="folder8Prep" class="levelFolder" data-toggle="collapse" href="#level8Prep">Level 8</a></div>
                 <div id="level8Prep" class="collapse show"></div>
-                <div><a class="levelFolder" data-toggle="collapse" href="#level9Prep">Level 9 <span id="count9"></span></a></div>
+                <div><a id="folder9Prep" class="levelFolder" data-toggle="collapse" href="#level9Prep">Level 9</a></div>
                 <div id="level9Prep" class="collapse show"></div>
             </div>
         </div>

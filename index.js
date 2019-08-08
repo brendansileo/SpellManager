@@ -1,5 +1,6 @@
-preparedCount = {'0': [], '1': [], '2': [], '3': [], '4': [], '5': [], '6': [], '7': [], '8': [], '9': []}
-
+maxPrepared = 0
+preparedCount = 0
+preparedSpells = []
 fullCaster = ['druid', 'cleric']
 halfCaster = ['paladin']
 
@@ -7,7 +8,21 @@ $(document).ready(function() {
     getSpells();
 
     $('#class').change(function(){
+        preparedSpells = [];
+        $('#level0Prep').empty()
+        $('#level1Prep').empty()
+        $('#level2Prep').empty()
+        $('#level3Prep').empty()
+        $('#level4Prep').empty()
+        $('#level5Prep').empty()
+        $('#level6Prep').empty()
+        $('#level7Prep').empty()
+        $('#level8Prep').empty()
+        $('#level9Prep').empty()
         var characterClass = $('#class').find(":selected").val();
+        var level = $('#level').val();
+        var mod = $('#mod').val();
+        updatePrepared(characterClass, parseInt(level, 10), parseInt(mod, 10))
         getSpells(characterClass);
     });
 
@@ -15,7 +30,7 @@ $(document).ready(function() {
         var characterClass = $('#class').find(":selected").val();
         var level = $('#level').val();
         var mod = $('#mod').val();
-        updatePrepared(characterClass, level, mod)
+        updatePrepared(characterClass, parseInt(level, 10), parseInt(mod, 10))
         getSpells(characterClass, level)
     });
 
@@ -23,27 +38,26 @@ $(document).ready(function() {
         var characterClass = $('#class').find(":selected").val();
         var level = $('#level').val();
         var mod = $('#mod').val();
-        updatePrepared(characterClass, level, mod)
+        updatePrepared(characterClass, parseInt(level, 10), parseInt(mod, 10))
     });
 }); 
 
 function updatePrepared(characterClass, level, mod)
-{
-    for(var i=0;i<10;i++)
+{   
+    console.log('string: '+characterClass)
+    console.log('item to compare it to: '+fullCaster[0])
+    console.log('equal?: ')
+    console.log(characterClass == fullCaster[0])
+    if(characterClass == '' || level == '' || mod == '') return
+    if(fullCaster.includes(characterClass))
     {
-        if(fullCaster.includes('characterClass'))
-        {
-            preparedCount[i.toString()] = [0, mod+level];
-        }
-        else if(halfCaster.includes('characterClass'))
-        {
-            preparedCount[i.toString()] = [0, mod+Math.floor(level/2)];
-        }
-        $('count'+i).empty()
-        console.log(preparedCount[i.toString()])
-        $('count'+i).append('['+preparedCount[i.toString()][0].toString()+' / '+preparedCount[i.toString()][1].toString()+']');
+        maxPrepared = mod+level;
     }
-
+    else if(halfCaster.includes(characterClass))
+    {
+        maxPrepared = mod+Math.floor(level/2);
+    }
+    $('#preparedCount').text('Prepared Count: ['+preparedCount+' / '+maxPrepared+']');
 }
 
 function getSpells(characterClass='', level=20) {
@@ -86,7 +100,7 @@ function appendSpell(spell, level) {
             {
                 spellInfo.level = 0;
             }
-            if(Math.ceil(level/2) >= spellInfo.level)
+            if(Math.ceil(level/2) >= spellInfo.level && !preparedSpells.includes('spell'+spellInfo.name))
             {
                 $('#level'+spellInfo.level).append(spellTemplate(spellInfo.name, spellDescription, spellInfo.level));
             }
@@ -120,4 +134,6 @@ function drop(ev) {
   spell = document.getElementById(data);
   spellLevel = spell.textContent.match(/(?<=Level: )[0-9]/)[0];
   $('#level'+spellLevel+'Prep').append(spell);
+  preparedSpells.push(spell.id)
+  preparedCount++;
 }
